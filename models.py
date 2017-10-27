@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 SQLALCHEMY_DATABASE = 'postgresql://postgres:asd123@localhost/bookdb'
-app.config['SQLALCHEMY_DATABASE_URI'] = 
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE
 #The followoing command is to get rid of the following warning:
 #C:\Python35-32\lib\site-packages\flask_sqlalchemy\__init__.py:839: FSADeprecatio
 #nWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be d
