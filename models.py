@@ -2,8 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-SQLALCHEMY_DATABASE = 'postgresql://postgres:asd123@localhost/bookdb'
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:asd123@localhost/bookdb'
 db = SQLAlchemy(app)
 
 
