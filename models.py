@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-if os.environ.get('DATABASE_URI') is None:
+if os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
 	app.config['SQLALCHEMY_DATABASE_URI'] =  'postgresql://postgres:asd123@localhost/bookdb'
 else:	
 	app.config['SQLALCHEMY_DATABASE_URI'] =  os.environ['SQLALCHEMY_DATABASE_URI']
