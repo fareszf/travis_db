@@ -4,13 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-if os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
+if 'SQLALCHEMY_DATABASE_URI' not in os.environ:	
 	app.config['SQLALCHEMY_DATABASE_URI'] =  'postgresql://postgres:asd123@localhost/bookdb'
 	print("I am in Python")
-	print(os.environ.get('SQLALCHEMY_DATABASE_URI'))
-	
 else:	
-	print("I am in Travis")
+	print("I am NOT in Python")
 	print(os.environ.get('SQLALCHEMY_DATABASE_URI'))
 	app.config['SQLALCHEMY_DATABASE_URI'] =  os.environ['SQLALCHEMY_DATABASE_URI']
 #The followoing command is to get rid of the following warning:
