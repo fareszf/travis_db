@@ -4,13 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-if 'SQLALCHEMY_DATABASE_URI' not in os.environ:	
-	app.config['SQLALCHEMY_DATABASE_URI'] =  'postgresql://postgres:asd123@localhost/bookdb'
-	print("I am in Python")
-else:	
-	print("I am NOT in Python")
-	print(os.environ.get('SQLALCHEMY_DATABASE_URI'))
-	app.config['SQLALCHEMY_DATABASE_URI'] =  os.environ['SQLALCHEMY_DATABASE_URI']
+SQLALCHEMY_DATABASE_URI =  'postgresql://postgres:asd123@localhost/bookdb'
+if 'TRAVIS' in os.environ:	
+	SQLALCHEMY_DATABASE_URI =  os.environ['SQLALCHEMY_DATABASE_URI']
+	print("I am in TRAVIS")
+app.config['SQLALCHEMY_DATABASE_URI'] =  SQLALCHEMY_DATABASE_URI
 #The followoing command is to get rid of the following warning:
 #C:\Python35-32\lib\site-packages\flask_sqlalchemy\__init__.py:839: FSADeprecatio
 #nWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be d
