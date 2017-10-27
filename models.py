@@ -3,6 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:asd123@localhost/bookdb'
+#The followoing command is to get rid of the following warning:
+#C:\Python35-32\lib\site-packages\flask_sqlalchemy\__init__.py:839: FSADeprecatio
+#nWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be d
+#isabled by default in the future.  Set it to True or False to suppress this warn
+#ing.
+#  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
