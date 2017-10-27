@@ -1,0 +1,24 @@
+language: python
+
+python:
+    - "3.5"
+
+addons:
+  postgresql: "9.5"
+
+services:
+  - postgresql
+
+install:
+    - pip install --upgrade pip
+    - pip --version
+    - pip install -r requirements.txt
+	
+env:
+  - SQLALCHEMY_DATABASE = 'postgresql://postgres:asd123@localhost/bookdb'
+  
+before_script:
+    - psql -c 'create database bookdb;' -U postgres
+
+script:
+    - python test.py
