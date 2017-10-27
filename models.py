@@ -6,7 +6,12 @@ app = Flask(__name__)
 
 if os.environ.get('SQLALCHEMY_DATABASE_URI') is None:
 	app.config['SQLALCHEMY_DATABASE_URI'] =  'postgresql://postgres:asd123@localhost/bookdb'
+	print("I am in Python")
+	print(os.environ.get('SQLALCHEMY_DATABASE_URI'))
+	
 else:	
+	print("I am in Travis")
+	print(os.environ.get('SQLALCHEMY_DATABASE_URI'))
 	app.config['SQLALCHEMY_DATABASE_URI'] =  os.environ['SQLALCHEMY_DATABASE_URI']
 #The followoing command is to get rid of the following warning:
 #C:\Python35-32\lib\site-packages\flask_sqlalchemy\__init__.py:839: FSADeprecatio
