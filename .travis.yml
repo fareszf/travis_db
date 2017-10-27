@@ -15,7 +15,7 @@ install:
     - pip install -r requirements.txt
 
 env:
-  - app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://postgres@localhost/bookdb'
+  - SQLALCHEMY_DATABASE = 'postgresql://postgres:asd123@localhost/bookdb'
 
 before_script:
     - psql -c 'create database bookdb;' -U postgres
