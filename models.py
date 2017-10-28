@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 SQLALCHEMY_DATABASE_URI =  'postgresql://postgres:asd123@localhost/bookdb'
 if 'TRAVIS' in os.environ:	
-	print('***************' +os.getenv('SQLALCHEMY_DATABASE_URI'))
 	SQLALCHEMY_DATABASE_URI =  'postgresql://postgres@localhost/bookdb'
 app.config['SQLALCHEMY_DATABASE_URI'] =  SQLALCHEMY_DATABASE_URI
 #The followoing command is to get rid of the following warning:
